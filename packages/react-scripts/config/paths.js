@@ -31,6 +31,11 @@ const publicUrlOrPath = getPublicUrlOrPath(
 
 const buildPath = process.env.BUILD_PATH || 'build';
 
+
+const tsConfigPath = process.env.TS_CONFIG_PATH || 'tsconfig.json';
+
+
+
 const moduleFileExtensions = [
   'web.mjs',
   'mjs',
@@ -68,7 +73,7 @@ module.exports = {
   appIndexJs: resolveModule(resolveApp, 'src/index'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
-  appTsConfig: resolveApp('tsconfig.json'),
+  appTsConfig: resolveApp(tsConfigPath),
   appJsConfig: resolveApp('jsconfig.json'),
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveModule(resolveApp, 'src/setupTests'),
@@ -93,7 +98,7 @@ module.exports = {
   appIndexJs: resolveModule(resolveApp, 'src/index'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
-  appTsConfig: resolveApp('tsconfig.json'),
+  appTsConfig: resolveApp(tsConfigPath),
   appJsConfig: resolveApp('jsconfig.json'),
   yarnLockFile: resolveApp('yarn.lock'),
   testsSetup: resolveModule(resolveApp, 'src/setupTests'),
@@ -131,7 +136,7 @@ if (
     appIndexJs: resolveModule(resolveOwn, `${templatePath}/src/index`),
     appPackageJson: resolveOwn('package.json'),
     appSrc: resolveOwn(`${templatePath}/src`),
-    appTsConfig: resolveOwn(`${templatePath}/tsconfig.json`),
+    appTsConfig: resolveOwn(`${templatePath}/${tsConfigPath}`),
     appJsConfig: resolveOwn(`${templatePath}/jsconfig.json`),
     yarnLockFile: resolveOwn(`${templatePath}/yarn.lock`),
     testsSetup: resolveModule(resolveOwn, `${templatePath}/src/setupTests`),
